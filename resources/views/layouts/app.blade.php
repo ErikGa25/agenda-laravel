@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    @yield('style-calendar')
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}"/>
 </head>
 <body>
     <div id="app">
@@ -46,6 +48,12 @@
                             <li><a href="{{ route('login') }}">Entrar </a></li>
                             <li><a href="{{ route('register') }}">Registrate</a></li>
                         @else
+                            <li>
+                                <a href="{{ action('HomeController@index') }}">Lista de Contactos</a>
+                            </li>
+                            <li>
+                                <a href="{{ action('ContactController@create') }}">Crear Contacto</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
@@ -77,5 +85,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('script-calendar')
 </body>
 </html>
