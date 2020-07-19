@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container container-body">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Entrar</div>
 
                 <div class="panel-body">
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="btn btn-primary">
                                     Iniciar Sesión
                                 </button>
 
