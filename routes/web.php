@@ -17,3 +17,4 @@ Route::view('/', 'index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/crear-contacto', 'ContactController@create');
 Route::post('/crear-contacto', 'ContactController@store');
+Route::get('/foto/{fileimage}', 'HomeController@getImage');
