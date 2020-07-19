@@ -1,0 +1,46 @@
+body {
+    background: url('http://localhost/agenda-laravel/public/img/textura.jpg');
+    font-family: cursive;
+    font-size: 16px;
+}
+
+.inicio {
+    text-align: center;
+}
+
+.inicio h1 {
+    font-size: 60px;
+}
+
+.container-body {
+    margin-top: 9vh;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #25201c;
+    color: white;
+}
+
+.datos {
+    background-color: #f9fff9;
+}
+
+textarea#direccion {
+    resize: none;
+}
+
+table tr th, td {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.foto {
+    margin: auto;
+    max-width: 50%;
+}
+
+#calendario {
+    display: flex;
+    justify-content: center;   
+    margin-top: 6vh;
+}
