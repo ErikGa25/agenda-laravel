@@ -12,11 +12,19 @@ body {
     font-size: 60px;
 }
 
+.navbar-default .navbar-nav > li >a, .navbar-brand {
+    font-weight: bold;
+}
+
 .container-body {
     margin-top: 9vh;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
+table {
+    font-size: 14px;
+}
+
+.table-striped >tbody > .head-table:nth-of-type(odd) {
     background-color: #25201c;
     color: white;
 }
