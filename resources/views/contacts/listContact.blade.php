@@ -36,9 +36,8 @@
     <div class="pull-right">
         {{ $contactos->links() }}
     </div>
-
+    <div class="clearfix"></div>
     @if(session('message'))
-        <br/>
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
