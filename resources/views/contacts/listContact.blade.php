@@ -3,10 +3,10 @@
 @section('content')
 <div class="container container-body">
     @if($contactos->isEmpty())
-        <h2>Tu lista de contactos esta vacía.</h2>
+        <h1>Tu lista de contactos esta vacía.</h1>
     @else
         <table class="table table-striped table-bordered">
-            <tr>
+            <tr class="head-table">
                 <th>Nombre completo</th>
                 <th>Correo</th>
                 <th>Dirección</th>
@@ -26,11 +26,22 @@
                     <td>{{ $contacto->job_title }}</td>
                     <td>{{ $contacto->sex }}</td>
                     <td><img src="{{ asset('/foto/'.$contacto->image) }}" class="img-responsive img-circle foto" alt="Foto"></td>
-                    <td><a href="" class="btn btn-warning">Editar</a></td>
-                    <td><a href="" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="{{ url('actualizar-contacto/'.$contacto->id) }}" class="btn btn-warning">Editar</a></td>
+                    <td><a href="{{ url('eliminar-contacto/'.$contacto->id) }}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             @endforeach
         </table>
+    @endif
+    
+    <div class="pull-right">
+        {{ $contactos->links() }}
+    </div>
+
+    @if(session('message'))
+        <br/>
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
     @endif
 </div>
 @endsection
