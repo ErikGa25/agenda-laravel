@@ -27,9 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         $contactos =  DB::table('contacts')
-                                ->select('name', 'username', 'email', 'address', 'cellphone', 'image', 'job_title', 'sex')
+                                ->select('id', 'name', 'username', 'email', 'address', 'cellphone', 'image', 'job_title', 'sex')
                                 ->orderBy('id', 'desc')
-                                ->get();
+                                ->simplePaginate(5);
 
         return view('contacts.listContact', ['contactos' => $contactos]);
     }
