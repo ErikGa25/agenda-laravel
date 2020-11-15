@@ -75,7 +75,9 @@
 
 
     <div class="col-md-6">
-        <p><img src="{{ asset('/foto/'.$contacto->image) }}" class="img-responsive"> Foto actual</p>
+        @if(isset($contacto->image))
+            <p><img src="{{ asset('/foto/'.$contacto->image) }}" class="img-responsive"> Foto actual</p>
+        @endif
         <input id="imagen" type="file" class="form-control" name="imagen" value="{{ old('imagen') }}" accept="image/*">
 
         @if ($errors->has('imagen'))
@@ -122,3 +124,17 @@
         @endif
     </div>
 </div>
+
+@if (isset($contacto->id))
+    <div class="form-group">
+        <div class="col-md-6">
+            <input id="oculto" type="hidden" class="form-control" name="oculto" value="{{ $contacto->id }}">
+        </div>
+    </div>
+
+    @if ($errors->has('oculto'))
+            <span class="help-block">
+                <strong>{{ $errors->first('oculto') }}</strong>
+            </span>
+        @endif
+@endif

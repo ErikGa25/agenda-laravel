@@ -122,12 +122,40 @@ class ContactController extends Controller
                 'imagen'    => 'nullable|image|max:2048',
                 'puesto'    => 'required|max:25',
                 'sexo'      => 'required|max:1',
+                'oculto'    => 'required|numeric|exists:contacts,id'
             ]);
     
             if ($validator->fails()) {
                 return redirect()->action('ContactController@edit', ['contacto' => $contacto])->withErrors($validator)->withInput();
             } else {
-                //funcionalidad
+                if(is_null($request->file('imagen'))) {
+                    if($request->sexo == 'M') {
+                        $nombre_imagen = 'masculino.png';
+                    } else {
+                        $nombre_imagen = 'femenino.png';
+                    }
+                } else {
+                    $archivo = $request->file('imagen');
+                    $nombre_imagen = time().$archivo->getClientOriginalName();
+                    Storage::disk('images')->put($nombre_imagen,  \File::get($archivo));
+                }
+                
+                $contact = Contact::find($request->oculto);
+                    $contact->name      = $request->nombre;
+                    $contact->username  = $request->apellido;
+                    $contact->email     = $request->correo;
+                    $contact->address   = $request->direccion;
+                    $contact->cellphone = $request->movil;
+                    $contact->image     = $nombre_imagen;
+                    $contact->job_title = $request->puesto;
+                    $contact->sex       = $request->sexo;
+                $confirm = $contact->save();
+
+                if($confirm) {
+                    return redirect()->action('HomeController@index')->with('message', 'Se actualizó la información correctamente.');
+                } else {
+                    return redirect()->action('ContactController@index')->with('error', 'Error al actualizar el contacto, intentar nuevamente.');
+                }
             }
         }
     }
