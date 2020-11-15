@@ -52,3 +52,7 @@ table tr th, td {
     justify-content: center;   
     margin-top: 6vh;
 }
+
+.img-responsive {
+    max-width: 30%;
+}
