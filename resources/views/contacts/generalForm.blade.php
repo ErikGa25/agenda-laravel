@@ -73,7 +73,9 @@
 <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
     <label for="imagen" class="col-md-4 control-label">Foto:</label>
 
+
     <div class="col-md-6">
+        <p><img src="{{ asset('/foto/'.$contacto->image) }}" class="img-responsive"> Foto actual</p>
         <input id="imagen" type="file" class="form-control" name="imagen" value="{{ old('imagen') }}" accept="image/*">
 
         @if ($errors->has('imagen'))
