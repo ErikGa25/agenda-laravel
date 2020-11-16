@@ -35,7 +35,13 @@ class HomeController extends Controller
     }
 
     public function getImage($fileimage) {
-        $photo = Storage::disk('images')->get($fileimage);
-        return new response($photo, 200);
+        $exists = Storage::disk('images')->exists($fileimage);
+
+        if($exists) {
+            $photo = Storage::disk('images')->get($fileimage);
+            return new response($photo, 200);
+        } else {
+            return redirect()->action('HomeController@index');
+        }
     }
 }
