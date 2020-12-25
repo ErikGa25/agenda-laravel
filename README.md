@@ -1,7 +1,7 @@
 ## Instrucciones
 
-***Crear la base de datos y modificar el archivo .env.exmple****
-- CREATE DATABASE IF NOT EXISTS agenda
+***Crear la base de datos y modificar el archivo .env.example****
+- CREATE DATABASE IF NOT EXISTS agenda;
 - renombrar el archivo como `.env` y poner los datos de tu servidor
 
 
