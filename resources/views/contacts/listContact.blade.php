@@ -33,6 +33,10 @@
                 @endforeach
             </table>
         </div>
+
+        <a href="{{ url('report-pdf/') }}" class="btn btn-success" target="_blank">Descargar en PDF</a>
+        <br>
+        <br>
     @endif
     
     <div class="pull-right">
